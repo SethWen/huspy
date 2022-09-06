@@ -1,12 +1,12 @@
 from setuptools import find_packages, setup
-import huspy
+from huspy import cli
 
 with open("README.md", "r") as fh:
   long_description = fh.read()
 
 setup(
     name='huspy',
-    version=huspy.__version__,
+    version=cli.__version__,
     description='A git hooks for Python.',
     long_description=long_description,
     long_description_content_type="text/markdown",
