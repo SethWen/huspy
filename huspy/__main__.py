@@ -20,7 +20,6 @@ def build_parser():
 def main(argv):
     parser = build_parser()
     args = parser.parse_args(argv[1:])
-    print('----', args)
 
     if args.install:
         huspy.install()
@@ -34,6 +33,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    import os
-    print(os.getcwd())
     sys.exit(main(sys.argv))

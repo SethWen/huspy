@@ -3,7 +3,7 @@ import shutil
 import subprocess
 
 
-__version__ = '0.6.0'
+__version__ = '0.1.0'
 
 
 def log(*args):
