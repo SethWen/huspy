@@ -1,35 +1,15 @@
-import codecs
-import sys
-import unittest
-import argparse
+from setuptools import find_packages, setup
+import huspy
 
-from setuptools import find_packages, setup, Command
-
-import huspy as huspy
-
-
-class RunTests(Command):
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        loader = unittest.TestLoader()
-        tests = loader.discover('yapftests', pattern='*_test.py', top_level_dir='.')
-        runner = unittest.TextTestRunner()
-        results = runner.run(tests)
-        sys.exit(0 if results.wasSuccessful() else 1)
-
+with open("README.md", "r") as fh:
+  long_description = fh.read()
 
 setup(
     name='huspy',
     version=huspy.__version__,
-    description='A formatter for Python code.',
-    long_description='long description',
+    description='A git hooks for Python.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     license='Apache License, Version 2.0',
     author='Shawn',
     maintainer='SethWen',
@@ -57,9 +37,6 @@ setup(
         'console_scripts': [
             'huspy = huspy:main',
         ],
-    },
-    cmdclass={
-        # 'test': RunTests,
     },
     extras_require={
         'pyproject': ['toml'],
